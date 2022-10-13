@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div>
+    <h1>Formulari de Registre</h1>
+<form action="./formulari.html" method="get">
+
+   <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="escriu el teu email" required>
+
+        <label for="passwd">Password</label>
+        <input type="password" name="password" id="password" placeholder="escriu la teva contrasenya" required>
+
+        
+
+
+   </div>
+      <br>
+
+    <label for="nom">Nom:  </label>
+    <input type="text" name="nom" id="nom" placeholder="Escriu el teu nom aquí" title="Escriu el teu nom aquí" required>
+
+   <label for="Llinatge">Primer Llinatge: </label>  
+   <input type="text" name="Llinatge" id="Llinatge" placeholder="Escriu el teu llin1 aqui" title="Escriu el teu llin1 aqui" required>
+
+   <label for="Llinatge2">Segon Llinatge: </label>  
+   <input type="text" name="Llinatge2" id="Llinatge2" placeholder="Escriu el teu llin2 aqui" title="Escriu el teu llin2 aqui" required>
+
+   </div> 
+
+   <div>
+       <label for="dataNeix">Data Naixament:</label>
+        <input type="date" name="dataNeix" id="dataNeix">
+
+
+   </div>
+
+   
+   
+   
+   <br>
+  
+   <div>
+        <span>Sexe:</span>
+        <input type="radio" name="sexe" id="sexHome" required value="H"><label for="sexeHome">Home</label>
+        <input type="radio" name="sexe" id="sexDona" required value="D"><label for="sexeDona">Dona</label>
+        <input type="radio" name="sexe" id="sexeAltres" required value="A"><label for="sexeAltres">Altres</label>
+    </div>
+
+  <br>
+
+  <div>
+    <label for="color">Tria el teu color favorit: </label>
+    <input type="color" name="calor" id="color">
+    
+    
+    
+  </div>
+  
+  
+  <div>
+    <input type="checkbox" name="cond" id="condicions" required><label for="condicions">Estic d'acord amb els termes del nostre servei</label>
+  </div>
+  
+    <div>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Esborra">
+    </div>
+
+  <br>
+
+  <div>
+    <label for="kebab">Quants de kebabsvt'has menjatvaquest mes?</label>
+    <input type="number" name="kebab" id="kebab" max="50" min ="1">
+
+    
+  </div>
+
+
+</form>
+
+
+
+
+
+</body>
+</html>
