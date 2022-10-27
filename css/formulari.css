@@ -1,0 +1,16 @@
+:required[required]{
+    background-color: lightsalmon;
+}
+input[text]{
+    border: 3px solid black;
+}
+h1:hover{
+    color: red;
+}
+h1::first-letter{
+    font-size: 45px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+input[type ="submit"]{
+    font-weight: bolder;
+}

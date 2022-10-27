@@ -26,3 +26,31 @@ h3{
 section p{
     text-decoration: underline;
 }
+h2+h3{
+    border: 2px solid black;
+}
+.sexe label. :nth-last-of-type(3){
+    color: blue;
+}
+#niggadog{
+ border: 3px solid black;
+ padding:  30px ;
+ margin: 0 auto;
+}
+#pare, #fill1, #fill2{
+ border-style: ;
+}
+#pare{
+    border-color: red;
+    border-width: 50%;
+}
+#fill1{
+    border-color: blue;
+    width: 50%;
+    float: left;
+}
+#fill2{
+    border-color: green;
+    width: 50%;
+    float: right;
+}
