@@ -10,4 +10,19 @@ span{
 #pWeb{
     color: blue;
 }
+.vermell{
+    color: red;
+}
+.subrajat{
+    text-decoration: underline;
 
+}
+h2,h3{
+    background-color: aquamarine;
+}
+h3{
+    width: 25%;
+}
+section p{
+    text-decoration: underline;
+}
