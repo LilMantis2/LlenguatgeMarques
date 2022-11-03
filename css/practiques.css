@@ -5,7 +5,7 @@ section{
 }
 
 span{
-    color: yellow;
+    color: rgb(255, 0, 0);
 }
 #pWeb{
     color: blue;
@@ -36,9 +36,11 @@ h2+h3{
  border: 3px solid black;
  padding:  30px ;
  margin: 0 auto;
+ width: 90%;
 }
 #pare, #fill1, #fill2{
- border-style: ;
+ border-style: solid;
+ width: 2px;
 }
 #pare{
     border-color: red;
@@ -54,3 +56,23 @@ h2+h3{
     width: 50%;
     float: right;
 }
+h1{
+    font-size: 25px;
+}
+span.separat{
+    padding-top: 60;
+}
+h6{
+    margin: 0 auto;
+    width: 60%;
+    color: red;
+    text-align: center;
+}
+.banner{
+    background-image: url(../img/primebuba.webp);
+    background-repeat: no-repeat;
+    background-size: 300px 100px;
+    background-position: center;
+    height: 120px;
+}
+<header><img src="./img/primebuba.webp" alt=""></header>
