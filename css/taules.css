@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/ccs2? family= Nunito & display=swap');
+
+:root{
+    --vermell: rgb(250, 4, 4);
+}
+
+body{
+    font-family: 'Tahoma', 'sans-serif';
+    font-weight: 800;
+}
+#sobre{
+    color: blue;
+    font-size: 50px;
+}
+.vermell{
+    background-color: var(--vermell);
+}
