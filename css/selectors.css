@@ -21,7 +21,7 @@ div.meitat{
 
 /* 5 - fer que els article que estiguin dins un section amb id "seccio1" tinguin un color de fons blau hexadecimal*/
  section#seccio1 article{
-   background-color:  #0000FF	 ;
+   background-color:  #0000ff	 ;
 }
 /* 6 - fer que els div amb classe "separador" tenguin un border superior de 2px black i un margin vertical de 10px*/
 div.separador{
