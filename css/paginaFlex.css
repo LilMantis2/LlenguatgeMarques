@@ -1,25 +1,86 @@
+@import url(https://fonts.google.com/share?selection.family=Mulish:wght@300);
+
 body {
-   display: flexbox;
-   
+  padding-left: 5%;
+  padding-right: 5%;
+  font-family:'Mulish', sans-serif;
+ 
 }
 nav{
   background-color: thistle;
-  
-
+ 
 }
+
+
+
+main{
+  background-color: rgb(30, 172, 157);
+  padding-left: 2%;
+  
+}
+a{
+padding-left: 5%; 
+}
+
 #jedi{
        color: rgb(26, 126, 116);
-       padding-top: 5%;
+       padding-top: 1%;
        padding-bottom: 10px;
        width: 10%;
        font-size: 200%;
        text-shadow: 1px 1px 1px 1px black;
        font-size: 40px;
-       
-}
-#houseUser{
-    
-}
+
+       }
 .fa-solid:hover{
     color: aquamarine;
+    
 }
+footer{
+  text-align: center;
+}
+.fecha{
+  color: rgb(13, 49, 207);
+  font-size: x-large;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+  font-size: 200%;
+  
+}
+
+.primerarticle{
+  font-size: 200%;
+  padding-bottom: 3vh;
+}
+.wrapper {
+  padding-bottom: 30px;
+}
+
+.divider {
+  position: relative;
+  margin-top: 40px;
+  height: 1px;
+}
+
+.div-transparent:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgb(48, 49, 51), transparent);
+}
+.fecha2{
+  color: rgb(13, 49, 207);
+  font-size: x-large;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+  font-size: 200%;
+}
+.segonarticle{
+  font-size: 200%;
+  padding-bottom: 3vh;
+}
+
