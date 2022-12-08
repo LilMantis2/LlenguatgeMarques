@@ -8,15 +8,15 @@ body {
 }
 nav{
   background-color: thistle;
- 
-}
+  display: flex;
+   justify-content: space-between;
+  }
 
 
 
-main{
+main{ 
   background-color: rgb(30, 172, 157);
   padding-left: 2%;
-  
 }
 a{
 padding-left: 5%; 
@@ -29,12 +29,15 @@ padding-left: 5%;
        width: 10%;
        font-size: 200%;
        text-shadow: 1px 1px 1px 1px black;
-       font-size: 40px;
+       font-size: 60px;
+       padding-left: 2%;
 
        }
 .fa-solid:hover{
     color: aquamarine;
-    
+   display: flex;
+   
+  
 }
 footer{
   text-align: center;
@@ -51,6 +54,7 @@ footer{
 .primerarticle{
   font-size: 200%;
   padding-bottom: 3vh;
+ 
 }
 .wrapper {
   padding-bottom: 30px;
@@ -82,5 +86,20 @@ footer{
 .segonarticle{
   font-size: 200%;
   padding-bottom: 3vh;
+}
+
+.flex-container {
+  display: flex;
+}
+.interaccion{
+   flex-flow: column;
+   padding-top: 1%;
+}
+aside{
+  width: 100%;
+  background-image: url(./img/banner.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
