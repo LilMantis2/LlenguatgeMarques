@@ -1,17 +1,24 @@
-document.querySelector("#botoHola").addEventListener("click", function () {
-    this.textContent = "BYE!";
+var botoHola = document.querySelector("#botoHola");
+
+botoHola.onclick= function(){this.textContent = "BYE!";};
+
+
+document.querySelector("#botoHola").onmouseover = toogleInvisible;
+document.querySelector("#botoHola").onmouseout  = toogleInvisible;
+
+document.querySelector("#botoCrea").addEventListener("click", function () {
+    document.querySelector("#creacio").innerHTML = "<h1>Som un h1</h1>";
 });
 
-document.querySelector("#botoHola").addEventListener("mouseover", function () {
-    document.querySelector("#primerP").classList.remove("invisible")
+document.querySelector("#botoRemove").addEventListener("click", function () {
+    document.querySelector("#creacio").innerHTML = "";
 });
 
-document.querySelector("#botoHola").addEventListener("mouseout", function () {
-    document.querySelector("primerP").classList.add("invisible")
+document.querySelector("#divEnllac button").addEventListener("click", function () {
+    var a = document.querySelector("#divEnllac a");
+    a.textContent = "Yahoo!";
+    a.setAttribute("href", "https://www.yahoo.es");
 });
-document.querySelector("#botoCrea").addEventListener("click", function () {
-    document.querySelector("#creacio").innerHTML = "<h1>Som un h1<h1>"
-});
-document.querySelector("#botoCrea").addEventListener("click", function () {
-    document.querySelector("#creacio").innerHTML = ""
-});
+function toogleInvisible() {
+    document.querySelector("#primerP").classList.toggle("invisible");
+}
