@@ -32,6 +32,13 @@ form.onsubmit = function (event) {
 nom.oninput = function () {
     setValidity(this, validaLlargaria(this.value, 2, 24) + nomLletres(this.value))
 };
+llin1.oninput = function  () {
+    setValidity(this, validaLlargaria(this.value, 2, 24) + nomLletres(this.value))
+};
+llin2.oninput = function  () {
+    
+    setValidity(this, validaLlargaria(this.value, 2, 24) + nomLletres(this.value))
+};
 
 
 /* Funció que marca els inputs com a vàlids/invàlids*/
