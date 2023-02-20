@@ -11,6 +11,7 @@
 </head>
 
 <body class="container pt-3">
+    <h1 class="container-fluid">Benvingut al formulari javaScript</h1>
     <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-4">
             <label for="nom" class="form-label">Nom</label>
@@ -21,58 +22,64 @@
         </div>
         <div class="col-md-4">
             <label for="llin1" class="form-label">Primer Llinatge</label>
-            <input type="text" class="form-control" id="llin1"  required>
+            <input type="text" class="form-control" id="llin1" required>
             <div class="invalid-feedback" id="error-llin1">
-               
+
             </div>
         </div>
         <div class="col-md-4">
             <label for="llin2" class="form-label">Segon Llinatge</label>
-            <input type="text" class="form-control" id="llin2"  required>
+            <input type="text" class="form-control" id="llin2" required>
             <div class="invalid-feedback" id="error-llin2">
-               
+
             </div>
         </div>
         <div class="col-md-4">
-            <label for="validationCustomUsername" class="form-label">Username</label>
+            <label for="usuari" class="form-label">Username</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="text" class="form-control" id="validationCustomUsername"
+                <input type="text" class="form-control" id="usuari"
                     aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please choose a username.
+                <div class="invalid-feedback" id="error-usuari">
+
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <label for="validationCustom03" class="form-label">Password</label>
-            <input type="text" class="form-control" id="validationCustom03" required>
-            <div class="invalid-feedback">
-                Please provide a valid city.
+        <div class="col-md-4">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" required>
+            <div class="invalid-feedback" id="error.password">
+               
             </div>
         </div>
+        <div class="col-md-3"></div>
         <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">State</label>
-            <select class="form-select" id="validationCustom04" required>
-                <option selected disabled value="">Choose...</option>
-                <option>...</option>
+            <label for="pais" class="form-label">Pais</label>
+            <select class="form-select" id="pais" required>
+                <option selected disabled value="">Selecciona...</option>
+
+                <option>França</option>
+                <option value="1">Alemanya</option>
+                <option value="2">Espanya</option>
+                <option value="3">Uganda</option>
+                <option value="4">Nigeria</option>
             </select>
-            <div class="invalid-feedback">
-                Please select a valid state.
+            <div class="invalid-feedback" id="error-pais">
+
             </div>
         </div>
         <div class="col-md-2">
             <label for="validationCustom05" class="form-label">CP</label>
             <input type="text" class="form-control" id="validationCustom05" required>
             <div class="invalid-feedback">
-             
+
             </div>
         </div>
         <div class="col-md-3">
             <label for="validationCustom05" class="form-label">DNI</label>
             <input type="text" class="form-control" id="validationCustom05" required>
             <div class="invalid-feedback">
-             
+
             </div>
         </div>
         <div class="col-md-3">
@@ -90,14 +97,14 @@
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                 <label class="form-check-label" for="invalidCheck">
-                    Aceptes els termes i condicions?
+                    Aceptes els <a href="https://youtu.be/JdYH1iOLHr4" target="_blank">termes i condicions?</a> 
                 </label>
                 <div class="invalid-feedback">
                     Tens que validar les condicions per continuar.
                 </div>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-1 mx-auto">
             <button class="btn btn-primary" type="submit">Envia</button>
         </div>
     </form>

@@ -36,9 +36,23 @@ llin1.oninput = function  () {
     setValidity(this, validaLlargaria(this.value, 2, 24) + nomLletres(this.value))
 };
 llin2.oninput = function  () {
-    
     setValidity(this, validaLlargaria(this.value, 2, 24) + nomLletres(this.value))
 };
+usuari.oninput = function (){
+    setValidity(this, validaLlargaria(this.value, 6, 16))
+};
+password.oninput = function (){
+    setValidity(this, validaLlargaria(this.value, 8 ,16) + requisitPassw(this.value))
+};
+pais.oninput = function (){
+    if(pais.value !="4") cp.setAttribute("disabled", "disabled")
+    if(pais.value !="4") dni.setAttribute("disabled", "disabled")
+
+    if(pais.value =="4") cp.remove("disabled", "diabled")
+    if(pais.value =="4") dni.remove("disabled", "diabled")
+};
+
+
 
 
 /* Funció que marca els inputs com a vàlids/invàlids*/
@@ -75,4 +89,9 @@ function nomLletres(input) {
 
     return regExp.test(input)?"":"Nomes es permeten lletres";
 
+}
+function requisitPassw (input,usuaris){
+    var regExp = /^[A-Z]*$/;
+
+    return regExp.test(input)?"":"Ha de contenir obligatòriament Mayusc, minusc, núm i Símbols";
 }
