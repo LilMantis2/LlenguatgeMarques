@@ -51,6 +51,9 @@ pais.oninput = function (){
     if(pais.value =="4") cp.remove("disabled", "diabled")
     if(pais.value =="4") dni.remove("disabled", "diabled")
 };
+cp.oninput = function (){
+    setValidity(this, validaLlargaria(this.value,5) + requisitCP(this.value))
+};
 
 
 
@@ -85,13 +88,17 @@ function validaLlargaria(input, min, max) {
     return "";
 }
 function nomLletres(input) {
-    var regExp = /^[A-Za-z\s]*$/;
+    var regExp = /^[A-Za-zÁ-Ź\s]*$/;
 
     return regExp.test(input)?"":"Nomes es permeten lletres";
 
 }
 function requisitPassw (input,usuaris){
     var regExp = /^[A-Z]*$/;
-
-    return regExp.test(input)?"":"Ha de contenir obligatòriament Mayusc, minusc, núm i Símbols";
+   
+    return regExp.test(input)?"":" Ha de contenir obligatòriament Mayusc, minusc, núm i Símbols";
+}
+function requisitCP (input){
+        var regExp = /^[0-9]*$/;
+        return regExp.test(input)?"":" Nomes es permeten numeros";
 }
