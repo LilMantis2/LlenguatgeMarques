@@ -93,12 +93,15 @@ function nomLletres(input) {
     return regExp.test(input)?"":"Nomes es permeten lletres";
 
 }
-function requisitPassw (input,usuaris){
+function requisitPassw (input){
     var regExp = /^[A-Z]*$/;
    
-    return regExp.test(input)?"":" Ha de contenir obligatòriament Mayusc, minusc, núm i Símbols";
+    return regExp.test(input)?"":"  .A més ha de contenir obligatòriament Mayusc, minusc, núm i Símbols";
 }
 function requisitCP (input){
         var regExp = /^[0-9]*$/;
         return regExp.test(input)?"":" Nomes es permeten numeros";
+}
+function usuarisEstablerts(input,usuaris){
+
 }
