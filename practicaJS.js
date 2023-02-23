@@ -32,27 +32,27 @@ form.onsubmit = function (event) {
 nom.oninput = function () {
     setValidity(this, validaLlargaria(this.value, 2, 24) + nomLletres(this.value))
 };
-llin1.oninput = function  () {
+llin1.oninput = function () {
     setValidity(this, validaLlargaria(this.value, 2, 24) + nomLletres(this.value))
 };
-llin2.oninput = function  () {
+llin2.oninput = function () {
     setValidity(this, validaLlargaria(this.value, 2, 24) + nomLletres(this.value))
 };
-usuari.oninput = function (){
-    setValidity(this, validaLlargaria(this.value, 6, 16))
+usuari.oninput = function () {
+    setValidity(this, validaLlargaria(this.value, 6, 16) + requisitUser(this.value))
 };
-password.oninput = function (){
-    setValidity(this, validaLlargaria(this.value, 8 ,16) + requisitPassw(this.value))
+password.oninput = function () {
+    setValidity(this, validaLlargaria(this.value, 8, 16) + requisitPassw(this.value))
 };
-pais.oninput = function (){
-    if(pais.value !="4") cp.setAttribute("disabled", "disabled")
-    if(pais.value !="4") dni.setAttribute("disabled", "disabled")
+pais.oninput = function () {
+    if (pais.value != "3") cp.setAttribute("disabled", "disabled")
+    if (pais.value != "3") dni.setAttribute("disabled", "disabled")
 
-    if(pais.value =="4") cp.remove("disabled", "diabled")
-    if(pais.value =="4") dni.remove("disabled", "diabled")
+    if (pais.value == "3") cp.removeAttribute("disabled", "disabled")
+    if (pais.value == "3") dni.removeAttribute("disabled", "disabled")
 };
-cp.oninput = function (){
-    setValidity(this, validaLlargaria(this.value,5) + requisitCP(this.value))
+cp.oninput = function () {
+    setValidity(this, requisitCP(this.value, 5, 5))
 };
 
 
@@ -68,6 +68,7 @@ function setValidity(element, msgError) {
     } else {
         element.classList.add("is-invalid");
     }
+
 
     element.setCustomValidity(msgError);
     document.querySelector(`#error-${element.id}`).textContent = msgError;
@@ -90,20 +91,20 @@ function validaLlargaria(input, min, max) {
 function nomLletres(input) {
     var regExp = /^[A-Za-zÁ-Ź\s]*$/;
 
-    return regExp.test(input)?"":"Nomes es permeten lletres";
+    return regExp.test(input) ? "" : "Nomes es permeten lletres";
 
 }
-function requisitPassw (input){
-    var regExp = /^[A-Z]*$/;
-   
-    return regExp.test(input)?"":"  .A més ha de contenir obligatòriament Mayusc, minusc, núm i Símbols";
+function requisitPassw(input) {
+    var pass = /^[A-Za-z0-9\W]*$/;
+      
+    return pass.test(input) ? "" : " .A més ha de contenir obligatòriament Mayusc, minusc, núm i Símbols";
 }
-function requisitCP (input){
-        var regExp = /^[0-9]*$/;
-        return regExp.test(input)?"":" Nomes es permeten numeros";
-}
-function usuarisEstablerts(input,usuaris){
-            if(usuari == usuaris[length]){
-                for
-            }
+function requisitCP(input, min, max) {
+    var num = /^[0-9]*$/;
+    if (input.length < min) return `La mida es inferior a ${min} `
+    if (input.length > max) return `La mida es superior a ${max} `
+     return num.test(input) ? "" : " Nomes es permeten numeros"
+};
+function requisitUser(input) {
+    return usuaris.includes(input) ? "Aquest usuaria ja esta definit" : "";
 }
