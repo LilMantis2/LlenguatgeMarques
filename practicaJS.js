@@ -103,5 +103,7 @@ function requisitCP (input){
         return regExp.test(input)?"":" Nomes es permeten numeros";
 }
 function usuarisEstablerts(input,usuaris){
-
+            if(usuari == usuaris[length]){
+                for
+            }
 }
