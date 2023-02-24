@@ -54,8 +54,34 @@ pais.oninput = function () {
 cp.oninput = function () {
     setValidity(this, requisitCP(this.value, 5, 5))
 };
+dni.oninput = function () {
+    setValidity(this, validateDNI(this.value))
+};
 
 
+function validateDNI(dni) {
+    var numero
+    var letr
+    var letra
+    var expresion_regular_dni
+   
+    expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+   
+    if(expresion_regular_dni.test (dni) == true){
+       numero = dni.substr(0,dni.length-1);
+       letr = dni.substr(dni.length-1,1);
+       numero = numero % 23;
+       letra='TRWAGMYFPDXBNJZSQVHLCKET';
+       letra=letra.substring(numero,numero+1);
+      if (letra!=letr.toUpperCase()) {
+         alert('Dni erroneo, la letra del NIF no se corresponde');
+       }else{
+         alert('Dni correcto');
+       }
+    }else{
+       alert('Dni erroneo, formato no válido');
+     }
+  };
 
 
 /* Funció que marca els inputs com a vàlids/invàlids*/
@@ -96,14 +122,14 @@ function nomLletres(input) {
 }
 function requisitPassw(input) {
     var pass = /^[A-Za-z0-9\W]*$/;
-      
+
     return pass.test(input) ? "" : " .A més ha de contenir obligatòriament Mayusc, minusc, núm i Símbols";
 }
 function requisitCP(input, min, max) {
     var num = /^[0-9]*$/;
     if (input.length < min) return `La mida es inferior a ${min} `
     if (input.length > max) return `La mida es superior a ${max} `
-     return num.test(input) ? "" : " Nomes es permeten numeros"
+    return num.test(input) ? "" : " Nomes es permeten numeros"
 };
 function requisitUser(input) {
     return usuaris.includes(input) ? "Aquest usuaria ja esta definit" : "";
