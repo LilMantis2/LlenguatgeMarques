@@ -43,18 +43,24 @@ function carrega(dades) {
     })
     .then(data => {
         carrega(data);
-    });
+    })
 
 
-}
-function pintaDades(dades){
-        var photos = dades.photos;
-        var resultat = "";
-        if(dades.photos.lenght){
-            dades.photos
-
-
-        }else{
-            resultat = "No s'han trobat dades"
+};
+function pintaDades(dades) {
+        var fotos = dades.photos;
+        let resultat = "";
+        if(fotos.lenght){
+            fotos.forEach((element) => {
+                resultat += `<p>
+                <label> Imagen amb l'id: ${element.id}, camara: ${element.camera.full_name}, fecha: ${element.earth_date},
+                Rover name: ${element.rover.name} (${element.rover.status}) (Arribada a Mart: ${cambiaFecha(element.rover.lading_date)})
+                <img src= '${element.img_src}'>
+                </p>`;
+            });
+        }else {
+            res = "No hem trobat resultat";
         }
-}
+        resultat.innerHTML = res;
+    }
+        

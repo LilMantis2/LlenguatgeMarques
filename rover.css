@@ -1,0 +1,24 @@
+select {
+    margin-bottom: 15px;
+     width: 100px;
+     height: 30px;
+
+ }
+ #data{
+ width: 150px;
+ height: 30px;
+ }
+ #boto{
+     margin-top: 40px;
+ }
+ #camara{
+     margin-top: 15px;
+ }
+ body{
+    background-image: url(./img/web_first_images_release_0.png);
+    
+ }
+ h3{
+    color: red;
+ }
+ 
