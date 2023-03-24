@@ -30,10 +30,17 @@
     </style>
     <div>
         <h3>Rover</h3>
-        <select name="" id="rover">
-            <option value="">Curiosity</option>
-            <option value="">Opportunity</option>
-            <option value="">Spirit</option>
+        <select name="rover" id="rover">
+            <option selected disabled value="">Selecciona</option>
+            <option value="Curiosity">Curiosity</option>
+            <option value="Opportunity">Opportunity</option>
+            <option value="Spirit">Spirit</option>
+        </select>
+    
+        <h3>Camara</h3>
+        <select name="camara" id="camara">
+            <option selected disabled value="">Selecciona</option>
+
         </select>
     </div>
     <div>
@@ -41,24 +48,12 @@
         <input type="date" name="" id="data">
     </div>
 
-    <div>
-        <h3>Camara</h3>
-        <select name="camara" id="camara">
-            <option value="">FHAZ</option>
-            <option value="">RHAZ</option>
-            <option value="">MAST</option>
-            <option value="">CHEMCAM</option>
-            <option value="">MAHLI</option>
-            <option value="">MARDI</option>
-            <option value="">NAVCAM</option>
-            <option value="">PANCAM</option>
-            <option value="">MINITES</option>
-        </select>
-    </div>
-
     <div id="boto">
         <input type="button" value="Carrèga" id="btnCarrega">
     </div>
+
+    <script src="rover.js"></script>
+
 </body>
 
 </html>
