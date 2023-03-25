@@ -59,7 +59,7 @@ function pintaDades(dades) {
                 </p>`;
             });
         }else {
-            res = "No hem trobat resultat";
+            resultat = "No hem trobat resultat";
         }
         resultat.innerHTML = resultat; 
     }
