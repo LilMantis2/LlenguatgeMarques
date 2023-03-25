@@ -2,7 +2,7 @@ const rover = document.querySelector("#rover");
 const data = document.querySelector("#data");
 const btnCarrega = document.querySelector("#btnCarrega");
 const camara1 = document.querySelector("#camara");
-const api = `EtexT4gFMPzCq7o0bdyFQTdiWZK7x1fV6lRgmEfr`;
+const api = `lHlJQbbcJnCjJs8pDsisqHqSu2vHNdMDcG59fYbz`;
 
 var URL = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover.value}/photos?earth_date=${data.value}&api_key=${api}`
 const selectorCamaraCuriosity = ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "MAHLI", "MARDI", "NAVCAM"];
@@ -49,18 +49,18 @@ function carrega(dades) {
 };
 function pintaDades(dades) {
         var fotosRov = dades.photos;
-        let resultat = "";
+        let result = "";
         if(fotos.lenght){
             fotosRov.forEach((element) => {
-                resultat += `<p>
+                result += `<p>
                 <label> Imagen amb l'id: ${element.id}, camara: ${element.camera.full_name}, fecha: ${element.earth_date},
-                Rover name: ${element.rover.name} (${element.rover.status}) (Arribada a Mart: ${cambiaFecha(element.rover.lading_date)})
+                Rover name: ${element.rover.name} (${element.rover.status}) (Arribada a Mart: ${cambiarFecha(element.rover.lading_date)})
                 <img src= '${element.img_src}'>
                 </p>`;
             });
         }else {
-            resultat = "No hem trobat resultat";
+            result = "No hem trobat resultat";
         }
-        resultat.innerHTML = resultat; 
+        result.innerHTML = result; 
     }
         
