@@ -42,7 +42,7 @@ function carrega(dades) {
         }
     })
     .then(data => {
-        carrega(data);
+        pintaDades(data);
     })
 
 
