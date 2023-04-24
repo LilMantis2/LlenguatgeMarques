@@ -1,0 +1,97 @@
+<peliculas>
+  <pelicula>
+    <titulo id="1" formato="DVD">El Padrino</titulo>
+    <director>Francis Ford Coppola</director>
+    <anio>1972</anio>
+    <generos>
+      <genero>Drama</genero>
+      <genero>Crimen</genero>
+    </generos>
+    <actores>
+      <actor>Marlon Brando</actor>
+      <actor>Al Pacino</actor>
+      <actor>James Caan</actor>
+    </actores>
+    <sinopsis>El Padrino es una película de drama y crimen dirigida por Francis Ford Coppola, basada en la novela homónima de Mario Puzo. La historia sigue a la familia mafiosa Corleone y su lucha por mantener su poder y legado en el mundo del crimen organizado en Nueva York.</sinopsis>
+  </pelicula>
+  <pelicula>
+    <titulo id="2" formato="Blu-ray">La La Land</titulo>
+    <director>Damien Chazelle</director>
+    <anio>2016</anio>
+    <generos>
+      <genero>Drama</genero>
+      <genero>Comedia musical</genero>
+      <genero>Romance</genero>
+    </generos>
+    <actores>
+      <actor>Ryan Gosling</actor>
+      <actor>Emma Stone</actor>
+      <actor>John Legend</actor>
+    </actores>
+    <sinopsis>La La Land es una película de drama, comedia musical y romance dirigida por Damien Chazelle. La historia sigue a un pianista de jazz y una aspirante a actriz en Los Ángeles mientras persiguen sus sueños y luchan por su amor en una ciudad conocida por sus desafíos y oportunidades.</sinopsis>
+  </pelicula>
+  <pelicula>
+    <titulo id="3" formato="DVD">Forrest Gump</titulo>
+    <director>Robert Zemeckis</director>
+    <anio>1994</anio>
+    <generos>
+      <genero>Drama</genero>
+      <genero>Comedia</genero>
+      <genero>Romance</genero>
+    </generos>
+    <actores>
+      <actor>Tom Hanks</actor>
+      <actor>Robin Wright</actor>
+      <actor>Gary Sinise</actor>
+    </actores>
+    <sinopsis>Forrest Gump es una película de drama, comedia y romance dirigida por Robert Zemeckis. La historia sigue a Forrest Gump, un hombre con discapacidad intelectual, mientras vive una vida llena de eventos significativos y se convierte en un héroe accidental en la historia de Estados Unidos.</sinopsis>
+  </pelicula>
+  <pelicula>
+    <titulo id="4" formato="Blu-ray">Toy Story</titulo>
+    <director>John Lasseter</director>
+    <anio>1995</anio>
+    <generos>
+      <genero>Animación</genero>
+      <genero>Aventura</genero>
+      <genero>Comedia</genero>
+    </generos>
+	<actores>
+      <actor>Tom Hanks</actor>
+      <actor>Tim Allen</actor>
+      <actor>Don Rickles</actor>
+    </actores>
+    <sinopsis>Toy Story es una película de animación, aventura y comedia dirigida por John Lasseter. La historia sigue a Woody, un juguete cowboy, y a Buzz Lightyear, un juguete espacial, mientras intentan regresar a casa después de un percance. La película es la primera de la exitosa franquicia de Toy Story de Pixar.</sinopsis>
+  </pelicula>
+  <pelicula>
+    <titulo id="5" formato="DVD">El Laberinto del Fauno</titulo>
+    <director>Guillermo del Toro</director>
+    <anio>2006</anio>
+    <generos>
+      <genero>Drama</genero>
+      <genero>Fantasía</genero>
+      <genero>Guerra</genero>
+    </generos>
+    <actores>
+      <actor>Ivana Baquero</actor>
+      <actor>Doug Jones</actor>
+      <actor>Sergi López</actor>
+    </actores>
+    <sinopsis>El Laberinto del Fauno es una película de drama, fantasía y guerra dirigida por Guillermo del Toro. La historia sigue a una niña llamada Ofelia durante la Guerra Civil española, mientras se enfrenta a desafíos mágicos y aterradores en un mundo de fantasía oculto en un laberinto.</sinopsis>
+  </pelicula>
+  <pelicula>
+    <titulo id="6" formato="Blu-ray">Interestelar</titulo>
+    <director>Christopher Nolan</director>
+    <anio>2014</anio>
+    <generos>
+      <genero>Ciencia ficción</genero>
+      <genero>Aventura</genero>
+      <genero>Drama</genero>
+    </generos>
+    <actores>
+      <actor>Matthew McConaughey</actor>
+      <actor>Anne Hathaway</actor>
+      <actor>Michael Caine</actor>
+    </actores>
+    <sinopsis>Interestelar es una película de ciencia ficción, aventura y drama dirigida por Christopher Nolan. La historia sigue a un grupo de astronautas que viajan a través de agujeros de gusano en busca de un nuevo hogar para la humanidad en un futuro distópico. La película es conocida por su espectacular cinematografía y conceptos científicos intrigantes.</sinopsis>
+  </pelicula>
+</peliculas>
