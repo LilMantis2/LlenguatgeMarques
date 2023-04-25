@@ -7,3 +7,7 @@ div{
     padding-left: 20%;
     padding-top: 3%;
 }
+#btnCarrega{
+    background-color: rgb(red, green, blue);
+    border: rgb(red, green, blue);
+}
