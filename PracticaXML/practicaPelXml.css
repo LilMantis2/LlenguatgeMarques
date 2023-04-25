@@ -1,0 +1,9 @@
+body{
+    background-image: url(/img/fondocolores.gif);
+    background-size: cover;
+}
+div{
+    color: white;
+    padding-left: 20%;
+    padding-top: 3%;
+}
