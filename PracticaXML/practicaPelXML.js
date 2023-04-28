@@ -16,6 +16,7 @@ function carregaXML() {
       exercici4(xml);
       exercici5(xml);
       exercici6(xml);
+      exercici7(xml);
       exercici9(xml);
     })
     .catch(console.error);
@@ -78,11 +79,15 @@ function exercici6(xml){
    let sinopsis = xml.querySelectorAll("pelicula");
    sinopsis.forEach(function(sinop) {
     if(sinop.querySelector("titulo").textContent == "Forrest Gump"){
-      resultado = sinop.querySelector("sinopsis").textContent;
+      resultado =sinop.querySelector("sinopsis").textContent ;
     }
    });
 
-   document.querySelector("#ex6").innerHTML =  resultado;
+   document.querySelector("#ex6").innerHTML = "-" + resultado;
+}
+
+function exercici7(xml){
+
 }
 
 function exercici9(xml) {
@@ -111,7 +116,7 @@ function exercici9(xml) {
   });
 
 
-  document.querySelector("#ex9").textContent = `El genero más visto es ${genResultado} amb un total de ${valorMax}`;
+  document.querySelector("#ex9").textContent = "-" + `El genero más visto es ${genResultado} amb un total de ${valorMax}`;
 }
 
 
