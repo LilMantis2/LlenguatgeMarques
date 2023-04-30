@@ -21,12 +21,12 @@ function carregaXML() {
     })
     .catch(console.error);
 }
-
+  // Nom de la primera pelicula
 function exercici1(xml) {
   let peli1 = xml.querySelector("pelicula");
   document.querySelector("#ex1").textContent = "-" + peli1.querySelector("titulo").textContent;
 }
-
+  //  Pelicules del s.XXI
 function exercici2(xml) {
   let resultado = "";
   let peliculas = xml.querySelectorAll("pelicula");
@@ -37,7 +37,7 @@ function exercici2(xml) {
   });
   document.querySelector("#ex2").innerHTML = "<ol>" + resultado + "</ol>";
 }
-
+  // Nom de totes les pel·lícules que han sortit en format "Blu-ray"
 function exercici3(xml) {
   let resultado = "";
   let peliculasBluRay = xml.querySelectorAll("pelicula");
@@ -49,7 +49,7 @@ function exercici3(xml) {
   document.querySelector("#ex3").innerHTML = "<ol>" + resultado + "</ol>";
 }
 
-
+  //  Nom de les pel·lícules que han sortit en "DVD" i són del s.XXI
 function exercici4(xml) {
   let resultado = "";
   let pelDvdSegle = xml.querySelectorAll("pelicula");
@@ -61,7 +61,7 @@ function exercici4(xml) {
   });
   document.querySelector("#ex4").innerHTML = "<ol>" + resultado + "</ol>";
 }
-
+  // Nom dels actors de la pel·lícula amb id="6"
 function exercici5(xml) {
   let resultado = "";
   let nomActors = xml.querySelectorAll("pelicula");
@@ -73,20 +73,30 @@ function exercici5(xml) {
   document.querySelector("#ex5").innerHTML = "<ol>" + resultado + "</ol>";
 
 }
-
-function exercici6(xml){
-   let resultado = "";
-   let sinopsis = xml.querySelectorAll("pelicula");
-   sinopsis.forEach(function(sinop) {
-    if(sinop.querySelector("titulo").textContent == "Forrest Gump"){
-      resultado =sinop.querySelector("sinopsis").textContent ;
+  // La sinopsis de forest gump
+function exercici6(xml) {
+  let resultado = "";
+  let sinopsis = xml.querySelectorAll("pelicula");
+  sinopsis.forEach(function (sinop) {
+    if (sinop.querySelector("titulo").textContent == "Forrest Gump") {
+      resultado = sinop.querySelector("sinopsis").textContent;
     }
-   });
+  });
 
-   document.querySelector("#ex6").innerHTML = "-" + resultado;
+  document.querySelector("#ex6").innerHTML = "-" + resultado;
+  document.querySelector("#ex6").classList.add("centrado");
 }
 
-function exercici7(xml){
+function exercici7(xml) {
+  let resultado = "";
+  let peliculaDrama = xml.querySelectorAll("pelicula");
+  peliculaDrama.forEach(function (peliculDram) {
+    if (peliculDram.querySelector("genero").textContent == "Drama") {
+      resultado += "<li>" + peliculDram.querySelector("pelicula").textContent + "</li>";
+      }
+  });
+
+  document.querySelector("#ex7").innerHTML = "<ol>" + resultado + "</ol>";
 
 }
 
@@ -108,16 +118,17 @@ function exercici9(xml) {
 
   let genResultado = "";
   let valorMax = 0;
-  mapa.forEach((value, key) =>{
-      if(value > valorMax){
-        valorMax = value;
-        genResultado = key;
-      }
+  mapa.forEach((value, key) => {
+    if (value > valorMax) {
+      valorMax = value;
+      genResultado = key;
+    }
   });
 
 
   document.querySelector("#ex9").textContent = "-" + `El genero más visto es ${genResultado} amb un total de ${valorMax}`;
 }
+
 
 
 

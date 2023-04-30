@@ -1,3 +1,4 @@
+
 body{
     background-image: url(/img/fondocolores.gif);
     background-size: cover;
@@ -7,4 +8,23 @@ div{
     padding-left: 20%;
     padding-top: 3%;
 }
-
+.centrado{
+    text-align:left;
+    font-size: 12px;
+    line-height: 1.2;
+    margin-right: 100px;
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+p{
+    font-family: 'Konkhmer Sleokchher', cursive;
+    font-size: 13px;
+}
