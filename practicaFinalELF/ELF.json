@@ -1,0 +1,44 @@
+{
+    "barcos": [
+        {
+            "color": "black",
+            "idBarco": "1",
+            "posicion": {
+                "largo": "5",
+                "orentacion": "H"
+            }
+        },
+        {
+            "color": "yellow",
+            "idBarco": "4",
+            "posicion": {
+                "largo": "2",
+                "orentacion": "V"
+            }
+        },
+        {
+            "color": "red",
+            "idBarco": "2",
+            "posicion": {
+                "largo": "3",
+                "orentacion": "V"
+            }
+        },
+        {
+            "color": "yellow",
+            "idBarco": "3",
+            "posicion": {
+                "largo": "5",
+                "orentacion": "H"
+            }
+        },
+        {
+            "color": "yellow",
+            "idBarco": "5",
+            "posicion": {
+                "largo": "6",
+                "orentacion": "V"
+            }
+        }
+    ]
+}
