@@ -17,23 +17,31 @@ const alto = canvas1.height / num_files;
 function dibujaCuadricula(contexto) {
     contexto.lineWidth = 5;
 
-    for (let fila = 0; fila < num_files; fila++) {
-        for (let col = 0; col < num_col; col++) {
-            if (fila === 0 || col === 0) {
-                contexto.fillStyle = "lightgray";
-                contexto.fillRect(col * ancho, fila * alto, ancho, alto);
-                contexto.fillStyle = "black"
-                if (fila === 0) {
-                    contexto.fillText(col, col * ancho + ancho / 2, fila * alto + alto / 2);
-                } else if (col === 0) {
-                    contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
+    var imagenCasilla = new Image();
+    imagenCasilla.src = "/img/barcoP.jpeg";
+
+    imagenCasilla.onload = function() {
+        for (let fila = 0; fila < num_files; fila++) {
+            for (let col = 0; col < num_col; col++) {
+                if (fila === 0 || col === 0) {
+                    contexto.fillStyle = "lightgray";
+                    contexto.fillRect(col * ancho, fila * alto, ancho, alto);
+                    contexto.fillStyle = "black";
+                    if (fila === 0) {
+                        contexto.fillText(col, col * ancho + ancho / 2, fila * alto + alto / 2);
+                        contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
+                    } else if (col === 0) {
+                        contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
+                        contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
+                    }
                 }
-            };
-            contexto.strokeRect(col * ancho, fila * alto, ancho, alto);
-        };
+                contexto.strokeRect(col * ancho, fila * alto, ancho, alto);
+            }
+        }
+        cargaBarcos(contexto);
     };
-    cargaBarcos(contexto);
-};
+}
+
 
 function pintaBarcos() {
 
