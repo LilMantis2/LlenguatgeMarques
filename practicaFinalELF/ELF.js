@@ -45,11 +45,37 @@ function dibujaCuadricula(contexto) {
 
 function pintaBarcos() {
 
-}
+    const color = barcos.color;
+    const longitud = barcos.posicion.longitud;
+    const orientacion = barcos.posicion.orientacion;
+
+    
+
+
+};
+
+
+
+canvas2.addEventListener('clcik', function (event){
+    const x = event.clientX - canvas2.offsetLeft;
+    const y =  event.clientY - canvas2.offsetTop;
+    const column = Math.floor(x / ancho); 
+    const fila = Math.floor(y - alto); 
+
+    if(fila > 0 && column > 0 &&!finalPartida()){
+        disparo(context2, fila, column);
+
+        ultimoDisparo = calculaProxDisparo();
+        disparo(context1, ultimoDisparo[0], ultimoDisparo[1])
+    }
+
+});
+
+
 
 
 function cargaBarcos(contexto) {
-    let url = contexto === context1 ? "../practicaFinalELF/ELF1.json" : "../practicaFinalELF/ELF2.json";
+    let url = contexto === context1 ? "../practicaFinalELF/ELF.json" : "../practicaFinalELF/ELF.json";
 
     fetch(url)
         .then(response => {
@@ -60,7 +86,7 @@ function cargaBarcos(contexto) {
             }
         })
         .then(data => {
-            data.barcos.foreach(barco => {
+            data.barcos.forEach(barco => {
                 pintaBarcos(contexto, barco);
             })
         })

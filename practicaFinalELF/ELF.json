@@ -3,40 +3,50 @@
         {
             "color": "black",
             "idBarco": "1",
+            "largo": "5",
             "posicion": {
-                "largo": "5",
+                "fila": "2",
+                "columna": "5"  ,
                 "orentacion": "H"
             }
         },
         {
             "color": "yellow",
             "idBarco": "4",
+            "largo": "2",
             "posicion": {
-                "largo": "2",
+                "fila": "5",
+                "columna": "1" ,
                 "orentacion": "V"
             }
         },
         {
             "color": "red",
             "idBarco": "2",
+            "largo": "3",
             "posicion": {
-                "largo": "3",
-                "orentacion": "V"
+                "fila": "7",
+                "columna": "4" ,
+                "orentacion": "H"
             }
         },
         {
             "color": "yellow",
             "idBarco": "3",
+            "largo": "5",
             "posicion": {
-                "largo": "5",
+                "fila": "4",
+                "columna": "3"  ,
                 "orentacion": "H"
             }
         },
         {
             "color": "yellow",
             "idBarco": "5",
+            "largo": "6",
             "posicion": {
-                "largo": "6",
+                "fila": "10",
+                "columna": "7" ,
                 "orentacion": "V"
             }
         }
