@@ -7,6 +7,8 @@ const reset = document.getElementById("reset");
 const num_files = 11;
 const num_col = 11;
 
+let barcos = {};
+
 const ancho = canvas2.width / num_col;
 const alto = canvas1.height / num_files;
 
@@ -33,6 +35,9 @@ function dibujaCuadricula(contexto) {
                     } else if (col === 0) {
                         contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
                         contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
+                    }else{
+                        contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
+                        contexto.color(black);
                     }
                 }
                 contexto.strokeRect(col * ancho, fila * alto, ancho, alto);
@@ -46,11 +51,27 @@ function dibujaCuadricula(contexto) {
 function pintaBarcos() {
 
     const color = barcos.color;
-    const longitud = barcos.posicion.longitud;
+    const largo = barcos.posicion.largo;
     const orientacion = barcos.posicion.orientacion;
+    const fila = barcos.posicion.fila;
+    const columna = barcos.posicion.columna;
 
-    
+    for(let fila = 0; fila < barcos; fila++){
+        for(let col = 0; col < barcos; col++){
+            if(fila > 0  &&  col > 0 ){
+                if(orientacion == 'H'){
+                    
+                }
+            }
+        }
 
+    }
+
+
+
+};
+
+function finalPartida(){
 
 };
 
