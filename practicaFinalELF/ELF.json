@@ -11,7 +11,7 @@
             }
         },
         {
-            "color": "yellow",
+            "color": "pink",
             "idBarco": "4",
             "largo": "2",
             "posicion": {
@@ -33,20 +33,20 @@
         {
             "color": "yellow",
             "idBarco": "3",
-            "largo": "5",
+            "largo": "4",
             "posicion": {
-                "fila": "4",
+                "fila": "5",
                 "columna": "3"  ,
                 "orentacion": "H"
             }
         },
         {
-            "color": "yellow",
+            "color": "green",
             "idBarco": "5",
             "largo": "6",
             "posicion": {
-                "fila": "10",
-                "columna": "7" ,
+                "fila": "5",
+                "columna": "3" ,
                 "orentacion": "V"
             }
         }
