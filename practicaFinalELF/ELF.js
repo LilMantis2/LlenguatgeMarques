@@ -13,8 +13,8 @@ let barcos = {};
 const ancho = canvas2.width / num_col;
 const alto = canvas1.height / num_files;
 
-let tablero1 = Array.from({ length: num_files - 1 }, () => new Array(num_col - 1));
-let tablero2 = Array.from({ length: num_files - 1 }, () => new Array(num_col - 1));
+let tablero1 = Array.from({ length: num_files - 1 }, () => new Array(num_col - 1).fill(""));
+let tablero2 = Array.from({ length: num_files - 1 }, () => new Array(num_col - 1).fill(""));
 
 
 function dibujaCuadricula(contexto) {
@@ -23,6 +23,7 @@ function dibujaCuadricula(contexto) {
     var imagenCasilla = new Image();
     imagenCasilla.src = "/img/barcoP.jpeg";
 
+       // Bucle pinta filas y columnas iniciales
     imagenCasilla.onload = function () {
         for (let fila = 0; fila < num_files; fila++) {
             for (let col = 0; col < num_col; col++) {
@@ -36,10 +37,7 @@ function dibujaCuadricula(contexto) {
                     } else if (col === 0) {
                         contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
                         contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
-                    } else {
-                        contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
-                        contexto.color(black);
-                    }
+                    } 
                 }
                 contexto.strokeRect(col * ancho, fila * alto, ancho, alto);
             }
@@ -51,10 +49,7 @@ function dibujaCuadricula(contexto) {
 
 function pintaBarcos(contexto, barco) {
 
-    
-
     let tablero = contexto==context1?tablero1:tablero2;
-
 
         const color = barco.color
         const largo = barco.largo;
@@ -65,22 +60,21 @@ function pintaBarcos(contexto, barco) {
 
             // Paso colores despues de mirar si el barco esta en horizontal o vertical
         for (let large = 0; large < largo; large++) {
-            
-            if (orientacion == 'H') {
-                fila++     
-            } else if (orientacion == 'V') {
-                columna++
-            }
             tablero[fila][columna] = barco.idBarco;
-            contexto.fillStyle;
+            contexto.fillStyle = color;
             contexto.fillRect(columna * ancho, fila * alto, ancho, alto);
+            
+
+            if (orientacion == 'H') {
+                columna++     
+            } else if (orientacion == 'V') {
+                fila++
+            }
+            
         }
     
 };
 
-function finalPartida() {
-
-};
 
 function reset() {
     // Selecciono todas las estructuras fisicas que se pueden borrar(dibujo)
@@ -97,10 +91,23 @@ function reset() {
     dibujaCuadricula(context2);
 }
 
+// Hago clicable la funcion resetea
 resetea.onclick = reset;
 
+function disparo (fila, columna){
+    if(fila > 0 && columna > 0){
+        const barcoDisparo = tablero[fila][columna];
+        if(barcoDisparo == barcos){
+           
+        }
+    
+    }
 
+    tablero[fila -1][columna] = "T"; // Tocado 
+   
+}
 
+        // Me sirve para hacer click en el canvas para luego hacer los disparos
 canvas2.addEventListener('click', function (event) {
     const x = event.clientX - canvas2.offsetLeft;
     const y = event.clientY - canvas2.offsetTop;
@@ -110,12 +117,15 @@ canvas2.addEventListener('click', function (event) {
     if (fila > 0 && column > 0 && !finalPartida()) {
         disparo(context2, fila, column);
 
-        ultimoDisparo = calculaProxDisparo();
+        ultimoDisparo = calculaProxDisparo(); // Variable para si da tiempo de hcaer la logica
         disparo(context1, ultimoDisparo[0], ultimoDisparo[1])
     }
 
 });
 
+function finalPartida() {
+
+};
 
 
 

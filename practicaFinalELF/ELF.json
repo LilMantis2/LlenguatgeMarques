@@ -3,51 +3,51 @@
         {
             "color": "black",
             "idBarco": "1",
-            "largo": "5",
+            "largo": 5,
             "posicion": {
-                "fila": "2",
-                "columna": "5"  ,
-                "orentacion": "H"
+                "fila": 2,
+                "columna": 5,
+                "orientacion": "H"
             }
         },
         {
             "color": "pink",
             "idBarco": "4",
-            "largo": "2",
+            "largo": 2,
             "posicion": {
-                "fila": "5",
-                "columna": "1" ,
-                "orentacion": "V"
+                "fila": 5,
+                "columna": 1,
+                "orientacion": "V"
             }
         },
         {
-            "color": "red",
+            "color": "blue",
             "idBarco": "2",
-            "largo": "3",
+            "largo": 3,
             "posicion": {
-                "fila": "7",
-                "columna": "4" ,
-                "orentacion": "H"
+                "fila": 4,
+                "columna": 6,
+                "orientacion": "H"
             }
         },
         {
             "color": "yellow",
             "idBarco": "3",
-            "largo": "4",
+            "largo": 4,
             "posicion": {
-                "fila": "5",
-                "columna": "3"  ,
-                "orentacion": "H"
+                "fila": 8,
+                "columna": 5,
+                "orientacion": "H"
             }
         },
         {
             "color": "green",
             "idBarco": "5",
-            "largo": "6",
+            "largo": 5,
             "posicion": {
-                "fila": "5",
-                "columna": "3" ,
-                "orentacion": "V"
+                "fila": 5,
+                "columna": 3,
+                "orientacion": "V"
             }
         }
     ]
