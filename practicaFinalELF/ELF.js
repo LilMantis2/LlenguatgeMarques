@@ -97,7 +97,7 @@ resetea.onclick = reset;
 function disparo (fila, columna){
     if(fila > 0 && columna > 0){
         const barcoDisparo = tablero[fila][columna];
-        if(barcoDisparo == barcos){
+        if(barcoDisparo == ''){
            
         }
     
