@@ -51,7 +51,6 @@ function pintaBarcos(contexto, barco) {
   const color = barco.color;
   const largo = barco.largo;
   const orientacion = barco.posicion.orientacion;
-
   let fila = barco.posicion.fila;
   let columna = barco.posicion.columna;
 
@@ -63,13 +62,14 @@ function pintaBarcos(contexto, barco) {
 
     if (orientacion === 'H') {
       columna++;
-      tablero[fila - 1][columna - 1] = "R"; 
+      tablero[fila - 1][columna - 1] = "R"; // Marco los barcos con una letra
     } else if (orientacion === 'V') {
       fila++;
-      tablero[fila - 1][columna - 1] = "R"; 
+      tablero[fila - 1][columna - 1] = "R"; // Marco los barcos con una letra
+
     }
   }
- 
+
 }
 
 function reset() {
