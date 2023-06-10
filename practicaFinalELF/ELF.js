@@ -3,7 +3,7 @@ const canvas2 = document.getElementById("canvas2");
 const context1 = canvas1.getContext('2d');
 const context2 = canvas2.getContext('2d');
 const resetea = document.getElementById("reset");
-const textArea = document.getElementById("textarea");
+const textArea = document.getElementById("textArea");
 
 const num_files = 11; // Delimitador en filas y columnas del ancho y largo del mapeado
 const num_col = 11;
