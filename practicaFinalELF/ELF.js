@@ -26,13 +26,13 @@ function dibujaCuadricula(contexto) {
   imagenCasilla.onload = function () {
     for (let fila = 0; fila < num_files; fila++) {
       for (let col = 0; col < num_col; col++) {
-        if (fila === 0) {
-          contexto.fillText(col, col * ancho + ancho / 2, fila * alto + alto / 2);
-          contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
-        } else if (col === 0) {
-          contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
-          contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
-        }
+          if (fila === 0) {
+            contexto.fillText(col, col * ancho + ancho / 2, fila * alto + alto / 2);
+            contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
+          } else if (col === 0) {
+            contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
+            contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
+          }
         contexto.strokeRect(col * ancho, fila * alto, ancho, alto);
       }
     }
@@ -57,11 +57,15 @@ function pintaBarcos(contexto, barco) {
 
     if (orientacion === 'H') {
       columna++;
+      tablero[fila - 1][columna - 1] = "R"; // Marco los barcos con una letra
     } else if (orientacion === 'V') {
       fila++;
+      tablero[fila - 1][columna - 1] = "R"; // Marco los barcos con una letra
 
     }
   }
+
+  tablero[fila-1][columna-1] = "R"
 
 }
 
@@ -77,9 +81,7 @@ function reset() {
   // Vuelvo a dibujar la cuadrícula
   dibujaCuadricula(context1);
   dibujaCuadricula(context2);
-
-  textArea.textContent = ""; // Borro el texto del texArea
-
+  textArea.textContent = "";
 }
 
 // Hago cliclable la función resetea
@@ -108,19 +110,19 @@ function disparoInteracion(fila, columna, tablero) {
 
 function calculaProxDisparo() {
 
-  let fila, columna;
-
-  // Buscar una casilla válida para disparar
-  do {
-    fila = Math.floor(Math.random() * (num_files - 1)) + 1;
-    columna = Math.floor(Math.random() * (num_col - 1)) + 1;
-  } while (tablero2[fila - 1][columna - 1] !== ""); // Evitar disparar en una casilla ya seleccionada
-
-  disparoInteracion(fila, columna, tablero1); // Realizar el disparo de la IA
-
-  return [fila, columna];
-}
-
+    let fila, columna;
+  
+    // Buscar una casilla válida para disparar
+    do {
+      fila = Math.floor(Math.random() * (num_files - 1)) + 1;
+      columna = Math.floor(Math.random() * (num_col - 1)) + 1;
+    } while (tablero1[fila - 1][columna - 1] !== ""); // Evitar disparar en una casilla ya seleccionada
+  
+    disparoInteracion(fila, columna, tablero1); // Realizar el disparo de la IA
+  
+    return [fila, columna];
+  }
+  
 
 
 // Me sirve para hacer clic en el canvas para luego hacer los disparos
@@ -144,7 +146,7 @@ function finalPartida() {
   for (let idBarco in barcos) {
     const barco = barcos[idBarco];    // Meto todas las IDs en un array y luego en una variable
     const vida = barco.largo;        // El largo es ahors la vida 
-
+   
 
     for (let fila = 0; fila < num_files - 1; fila++) {
       for (let col = 0; col < num_col - 1; col++) {
@@ -155,7 +157,7 @@ function finalPartida() {
     }
 
     if (vida === 0) {
-      textArea.value = "¡Barco " + barco.idBarco + " hundido!\n";
+      textArea.textContent += "¡Barco " + barco.idBarco + " hundido!\n";
       hundido = true;
     }
   }
