@@ -26,10 +26,6 @@ function dibujaCuadricula(contexto) {
   imagenCasilla.onload = function () {
     for (let fila = 0; fila < num_files; fila++) {
       for (let col = 0; col < num_col; col++) {
-        if (fila === 0 || col === 0) {
-          contexto.fillStyle = "lightgray";
-          contexto.fillRect(col * ancho, fila * alto, ancho, alto);
-          contexto.fillStyle = "black";
           if (fila === 0) {
             contexto.fillText(col, col * ancho + ancho / 2, fila * alto + alto / 2);
             contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
@@ -37,7 +33,6 @@ function dibujaCuadricula(contexto) {
             contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
             contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
           }
-        }
         contexto.strokeRect(col * ancho, fila * alto, ancho, alto);
       }
     }
@@ -70,6 +65,8 @@ function pintaBarcos(contexto, barco) {
     }
   }
 
+  tablero[fila-1][columna-1] = "R"
+
 }
 
 function reset() {
@@ -89,18 +86,21 @@ function reset() {
 // Hago cliclable la función resetea
 resetea.onclick = reset;
 
+
 function disparoInteracion(fila, columna, tablero) {
-
-
   if (fila > 0 && columna > 0) {
-    const barcoDisparo = tablero[fila][columna];
+    const barcoDisparo = tablero[fila - 1][columna - 1];
+    const casilla = context2;
     if (barcoDisparo === "") {
-      textArea.textContent += "Agua!!!!";
+      textArea.textContent += "Agua!!!!\n";
+      casilla.fillStyle = "blue"; // Cambiar color de fondo a azul para marcar agua
     } else if (barcoDisparo === "T") {
-      textArea.textContent += "Esta casilla ha sido seleccionada anteriormente";
+      textArea.textContent += "Esta casilla ha sido seleccionada anteriormente\n";
     } else {
-      textArea.textContent += "TOCADOO!!";
+      textArea.textContent += "TOCADOO!!\n";
+      casilla.fillStyle = "red"; // Cambiar color de fondo a rojo para marcar tocado
     }
+    casilla.fillRect(columna * ancho, fila * alto, ancho, alto);
   }
 
   tablero[fila - 1][columna - 1] = "T"; // Tocado
@@ -108,36 +108,62 @@ function disparoInteracion(fila, columna, tablero) {
 
 
 function calculaProxDisparo() {
-  // Implementa la lógica para calcular el próximo disparo
-}
+
+    let fila, columna;
+  
+    // Buscar una casilla válida para disparar
+    do {
+      fila = Math.floor(Math.random() * (num_files - 1)) + 1;
+      columna = Math.floor(Math.random() * (num_col - 1)) + 1;
+    } while (tablero2[fila - 1][columna - 1] !== ""); // Evitar disparar en una casilla ya seleccionada
+  
+    disparoInteracion(fila, columna, tablero1); // Realizar el disparo de la IA
+  
+    return [fila, columna];
+  }
+  
 
 
 // Me sirve para hacer clic en el canvas para luego hacer los disparos
 canvas2.addEventListener('click', function (event) {
   const x = event.clientX - canvas2.offsetLeft;
   const y = event.clientY - canvas2.offsetTop;
-  const column = Math.floor(x / ancho);
-  const fila = Math.floor(y - alto);
+  const columna = Math.floor(x / ancho);
+  const fila = Math.floor(y / alto);
 
-  if (fila > 0 && column > 0 && !finalPartida()) {
-    disparoInteracion(fila, column, tablero1);
+  if (fila > 0 && columna > 0 && !finalPartida()) {
+    disparoInteracion(fila, columna, tablero1);
 
     ultimoDisparo = calculaProxDisparo(); // Variable para si da tiempo de hacer la lógica
-    disparoInteracion(ultimoDisparo[0], ultimoDisparo[1], tablero2);
+    disparoInteracion(ultimoDisparo[0], ultimoDisparo[1], tablero1);
   }
 });
 
-function finalPartida(barco) {
-  const vida = barco.largo;
-  for (let i = 0; i < barco.length; i++) {
-    if (disparoInteracion.textArea.value === "TOCADOO!!") {
-      vida--;
-      if (vida === 0) {
-        textArea.value = "Barco hundido!";
+function finalPartida() {
+  let hundido = false;
+
+  for (let idBarco in barcos) {
+    const barco = barcos[idBarco];    // Meto todas las IDs en un array y luego en una variable
+    const vida = barco.largo;        // El largo es ahors la vida 
+   
+
+    for (let fila = 0; fila < num_files - 1; fila++) {
+      for (let col = 0; col < num_col - 1; col++) {
+        if (barco.idBarco === tablero1[fila][col] && tablero2[fila][col] === "T") {
+          vida--;
+        }
       }
     }
+
+    if (vida === 0) {
+      textArea.value = "¡Barco " + barco.idBarco + " hundido!\n";
+      hundido = true;
+    }
   }
+
+  return hundido;
 }
+
 
 function cargaBarcos(contexto) {
   let url = contexto === context1 ? "../practicaFinalELF/ELF.json" : "../practicaFinalELF/ELF.json";
