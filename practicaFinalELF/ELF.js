@@ -148,7 +148,7 @@ function finalPartida() {
 
     for (let fila = 0; fila < num_files - 1; fila++) {
       for (let col = 0; col < num_col - 1; col++) {
-        if (barco.idBarco === tablero1[fila][col] && tablero2[fila][col] === "T") {
+        if (barco === tablero1[fila][col] && tablero2[fila][col] === "T") {
           vida--;
         }
       }
