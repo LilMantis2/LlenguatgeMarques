@@ -10,7 +10,7 @@ const num_col = 11;
 
 let barcos = {};
 
-const ancho = canvas2.width / num_col;
+const ancho = canvas2.width / num_col;   
 const alto = canvas1.height / num_files;
 
 let tablero1 = Array.from({ length: num_files - 1 }, () => new Array(num_col - 1).fill("")); // Delimito los tableros restando uno para quitar las primeras filas 
@@ -33,7 +33,7 @@ function dibujaCuadricula(contexto) {
             contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
             contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
           }
-        contexto.strokeRect(col * ancho, fila * alto, ancho, alto);
+        contexto.strokeRect(col * ancho, fila * alto, ancho, alto);  // casillas
       }
     }
     cargaBarcos(contexto);
@@ -65,13 +65,11 @@ function pintaBarcos(contexto, barco) {
     }
   }
 
-  tablero[fila-1][columna-1] = "R"
-
 }
 
 function reset() {
   // Selecciono todas las estructuras físicas que se pueden borrar (dibujo)
-  barcos = {};
+ 
   tablero1 = Array.from({ length: num_files - 1 }, () => new Array(num_col - 1).fill(""));
   tablero2 = Array.from({ length: num_files - 1 }, () => new Array(num_col - 1).fill(""));
 
@@ -133,7 +131,7 @@ canvas2.addEventListener('click', function (event) {
   const fila = Math.floor(y / alto);
 
   if (fila > 0 && columna > 0 && !finalPartida()) {
-    disparoInteracion(fila, columna, tablero1);
+    disparoInteracion(fila, columna, tablero2);
 
     ultimoDisparo = calculaProxDisparo(); // Variable para si da tiempo de hacer la lógica
     disparoInteracion(ultimoDisparo[0], ultimoDisparo[1], tablero1);
