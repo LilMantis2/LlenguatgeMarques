@@ -86,20 +86,22 @@ function reset() {
 resetea.onclick = reset;
 
 
-function disparoInteracion(fila, columna, tablero) {
+function disparoInteracion(fila, columna, tablero, contexto) {
+    console.log(fila + "-" + columna + "-" + tablero)
   if (fila > 0 && columna > 0) {
     const barcoDisparo = tablero[fila - 1][columna - 1];
-    const casilla = context2;
     if (barcoDisparo === "") {
       textArea.textContent += "Agua!!!!\n";
-      casilla.fillStyle = "blue"; // Cambiar color de fondo a azul para marcar agua
+      contexto.fillStyle = "blue"; // Cambiar color de fondo a azul para marcar agua
     } else if (barcoDisparo === "T") {
       textArea.textContent += "Esta casilla ha sido seleccionada anteriormente\n";
     } else {
       textArea.textContent += "TOCADOO!!\n";
-      casilla.fillStyle = "red"; // Cambiar color de fondo a rojo para marcar tocado
+      contexto.fillStyle = "red"; // Cambiar color de fondo a rojo para marcar tocado
     }
-    casilla.fillRect(columna * ancho, fila * alto, ancho, alto);
+    //context1.fillStyle = "red"
+    contexto.fillRect(columna * ancho, fila * alto, ancho, alto);
+    //console.log(columna * ancho, fila * alto, ancho, alto)
   }
 
   tablero[fila - 1][columna - 1] = "T"; // Tocado
@@ -116,8 +118,8 @@ function calculaProxDisparo() {
       columna = Math.floor(Math.random() * (num_col - 1)) + 1;
     } while (tablero1[fila - 1][columna - 1] !== ""); // Evitar disparar en una casilla ya seleccionada
   
-    disparoInteracion(fila, columna, tablero1); // Realizar el disparo de la IA
-  
+    disparoInteracion(fila, columna, tablero1, context1); // Realizar el disparo de la IA
+       //    console.log("fila: " + fila +"-"+ columna)
     return [fila, columna];
   }
   
@@ -131,10 +133,10 @@ canvas2.addEventListener('click', function (event) {
   const fila = Math.floor(y / alto);
 
   if (fila > 0 && columna > 0 && !finalPartida()) {
-    disparoInteracion(fila, columna, tablero2);
+    disparoInteracion(fila, columna, tablero2, context2);
 
     ultimoDisparo = calculaProxDisparo(); // Variable para si da tiempo de hacer la lógica
-    disparoInteracion(ultimoDisparo[0], ultimoDisparo[1], tablero1);
+    disparoInteracion(ultimoDisparo[0], ultimoDisparo[1], tablero1, context1);
   }
 });
 
