@@ -4,12 +4,14 @@ canvas {
 
 h1 {
     padding-left: 37%;
-    color: rgb(243, 9, 9);
+    color: rgb(95, 45, 5);
     font-size: 50px;
-    font-style: italic;
-    background-image: linear-gradient(to left, rgba(243, 9, 9, 0.8), rgba(0, 0, 0, 0.8)), url(/img/background.jpg);
+   
+    font-family: 'Kablammo', cursive;
+    font-family: 'Konkhmer Sleokchher', cursive;
+    font-family: 'Yuji Hentaigana Akebono', cursive;
+    background-image: linear-gradient(to left, rgba(11, 197, 230, 0.8), rgba(0, 0, 0, 0.8)), url(/img/palmera.png);
     background-position: center;
-    background-size: cover;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
@@ -23,10 +25,12 @@ textarea {
     background-image: url(/img/mapa.jpg);
     background-position: center;
 }
-.botones{
+
+.botones {
     text-align: center;
 }
-#reset{
+
+#reset {
     background-color: #4CAF50;
     border: black;
     color: white;
@@ -35,7 +39,8 @@ textarea {
     display: inline-block;
     font-size: 16px;
 }
-#index{
+
+#index {
     background-color: #4CAF50;
     border: black;
     color: white;
