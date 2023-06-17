@@ -10,7 +10,7 @@ const num_col = 11;
 
 let barcos = {};
 
-const ancho = canvas2.width / num_col;   
+const ancho = canvas2.width / num_col;
 const alto = canvas1.height / num_files;
 
 let tablero1 = Array.from({ length: num_files - 1 }, () => new Array(num_col - 1).fill("")); // Delimito los tableros restando uno para quitar las primeras filas 
@@ -26,13 +26,13 @@ function dibujaCuadricula(contexto) {
   imagenCasilla.onload = function () {
     for (let fila = 0; fila < num_files; fila++) {
       for (let col = 0; col < num_col; col++) {
-          if (fila === 0) {
-            contexto.fillText(col, col * ancho + ancho / 2, fila * alto + alto / 2);
-            contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
-          } else if (col === 0) {
-            contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
-            contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
-          }
+        if (fila === 0) {
+          contexto.fillText(col, col * ancho + ancho / 2, fila * alto + alto / 2);
+          contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
+        } else if (col === 0) {
+          contexto.fillText(fila, col * ancho + ancho / 2, fila * alto + alto / 2);
+          contexto.drawImage(imagenCasilla, col * ancho, fila * alto, ancho, alto);
+        }
         contexto.strokeRect(col * ancho, fila * alto, ancho, alto);  // casillas
       }
     }
@@ -69,7 +69,7 @@ function pintaBarcos(contexto, barco) {
 
 function reset() {
   // Selecciono todas las estructuras físicas que se pueden borrar (dibujo)
- 
+
   tablero1 = Array.from({ length: num_files - 1 }, () => new Array(num_col - 1).fill(""));
   tablero2 = Array.from({ length: num_files - 1 }, () => new Array(num_col - 1).fill(""));
 
@@ -87,42 +87,45 @@ resetea.onclick = reset;
 
 
 function disparoInteracion(fila, columna, tablero, contexto) {
-    console.log(fila + "-" + columna + "-" + tablero)
   if (fila > 0 && columna > 0) {
     const barcoDisparo = tablero[fila - 1][columna - 1];
     if (barcoDisparo === "") {
-      textArea.textContent += "Agua!!!!\n";
+      textArea.textContent += "J1: Agua!!!! ";
+      textArea.textContent += new Date().toLocaleTimeString(); // Agrega la hora exacta
+      textArea.textContent += "\n";
       contexto.fillStyle = "blue"; // Cambiar color de fondo a azul para marcar agua
+
     } else if (barcoDisparo === "T") {
-      textArea.textContent += "Esta casilla ha sido seleccionada anteriormente\n";
+      textArea.textContent += "J1: Esta casilla ha sido seleccionada anteriormente\n";
+
     } else {
-      textArea.textContent += "TOCADOO!!\n";
+      textArea.textContent += "J1: TOCADOO!! ";
+      textArea.textContent += new Date().toLocaleTimeString(); // Agrega la hora exacta
+      textArea.textContent += "\n";
       contexto.fillStyle = "red"; // Cambiar color de fondo a rojo para marcar tocado
     }
-    //context1.fillStyle = "red"
     contexto.fillRect(columna * ancho, fila * alto, ancho, alto);
-    //console.log(columna * ancho, fila * alto, ancho, alto)
   }
 
   tablero[fila - 1][columna - 1] = "T"; // Tocado
 }
 
 
-function calculaProxDisparo() {
 
-    let fila, columna;
-  
-    // Buscar una casilla válida para disparar
-    do {
-      fila = Math.floor(Math.random() * (num_files - 1)) + 1;
-      columna = Math.floor(Math.random() * (num_col - 1)) + 1;
-    } while (tablero1[fila - 1][columna - 1] !== ""); // Evitar disparar en una casilla ya seleccionada
-  
-    disparoInteracion(fila, columna, tablero1, context1); // Realizar el disparo de la IA
-       //    console.log("fila: " + fila +"-"+ columna)
-    return [fila, columna];
-  }
-  
+function calculaProxDisparo(contexto) {
+
+  let fila, columna;
+
+  // Buscar una casilla válida para disparar
+  do {
+    fila = Math.floor(Math.random() * (num_files - 1)) + 1;
+    columna = Math.floor(Math.random() * (num_col - 1)) + 1;
+  } while (tablero1[fila - 1][columna - 1] !== ""); // Evitar disparar en una casilla ya seleccionada
+
+  disparoInteracion(fila, columna, tablero1, context1); // Realizar el disparo de la IA
+  return [fila, columna];
+}
+
 
 
 // Me sirve para hacer clic en el canvas para luego hacer los disparos
@@ -146,7 +149,7 @@ function finalPartida() {
   for (let idBarco in barcos) {
     const barco = barcos[idBarco];    // Meto todas las IDs en un array y luego en una variable
     const vida = barco.largo;        // El largo es ahors la vida 
-   
+
 
     for (let fila = 0; fila < num_files - 1; fila++) {
       for (let col = 0; col < num_col - 1; col++) {

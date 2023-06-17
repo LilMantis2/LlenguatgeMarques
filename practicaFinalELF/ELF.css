@@ -7,8 +7,12 @@ h1 {
     color: rgb(243, 9, 9);
     font-size: 50px;
     font-style: italic;
-
+    background-image: linear-gradient(to left, rgba(243, 9, 9, 0.8), rgba(0, 0, 0, 0.8)), url(/img/background.jpg);
+    background-position: center;
+    background-size: cover;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
+
 
 body {
     background-image: url(/img/shutterstock_200624198.jpg);
@@ -18,4 +22,25 @@ body {
 textarea {
     background-image: url(/img/mapa.jpg);
     background-position: center;
+}
+.botones{
+    text-align: center;
+}
+#reset{
+    background-color: #4CAF50;
+    border: black;
+    color: white;
+    padding: 12px 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+#index{
+    background-color: #4CAF50;
+    border: black;
+    color: white;
+    padding: 12px 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
 }
