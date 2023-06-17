@@ -1,66 +1,86 @@
-const rover = document.querySelector("#rover");
 const data = document.querySelector("#data");
-const btnCarrega = document.querySelector("#btnCarrega");
-const camara1 = document.querySelector("#camara");
+const rover = document.querySelector("#rover");
+const pagina = document.querySelector("#paginacio");
+const camera = document.querySelector("#camera");
+const camarasCuriosity = ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "MAHLI", "MARDI", "NAVCAM"];
+const camarasOpportunitySpirit = ["FHAZ", "RHAZ", "NAVCAM", "PANCAM", "MINITES"];
 const api = `lHlJQbbcJnCjJs8pDsisqHqSu2vHNdMDcG59fYbz`;
+const resultat = document.querySelector("#resultat");
 
-var URL = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover.value}/photos?earth_date=${data.value}&api_key=${api}`
-const selectorCamaraCuriosity = ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "MAHLI", "MARDI", "NAVCAM"];
-const selectorCamaraOportunitySpirit = ["FHAZ", "RHAZ", "NAVCAM", "PANCAM", "MINITES"];
+const btnCarrega = document.querySelector("#btnCarrega");
 
 btnCarrega.onclick = carrega;
-rover.oninput = camara;
+rover.oninput = carregaCameres;
 
 
 
-function camara() {
-    var recorArray = []
+function carregaCameres() {
+    var array = [];
     if (rover.value.toLowerCase() == "Curiosity".toLowerCase()) {
-        recorArray = selectorCamaraCuriosity;
+        array = camarasCuriosity;
     } else {
-        recorArray = selectorCamaraOportunitySpirit;
-    }
+        array = camarasOpportunitySpirit;
+    };
+    var resultat = "<option value =''>Selecciona cámara</option>";
 
-
-
-    var resultat = "<option value =''>Selecciona</option>";
-    recorArray.forEach(function(element){
+    array.forEach(function (element) {
         resultat += `<option value="${element}">${element}</option>`;
     });
 
-    camara1.innerHTML = resultat;
+    camera.innerHTML = resultat;
 };
-function carrega(dades) {
-    var URL = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover.value}/photos?earth_date=${data.value}&api_key=${api}`
 
 
+function carrega() {
+
+    var URL = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover.value.toLowerCase()}/photos?camera=${camera.value.toLowerCase()}&page=${pagina.value}&earth_date=${data.value}&api_key=${api}`;
+
+    if (data.value == "") {
+        alert("Tienes que poner una fecha!!")
+    };
     fetch(URL)
-    .then(response => {
-         if (response.ok) return response.json()
-        else {
-            alert("No s'ha pogut completar la carrega. Error" + response.status)
-        }
-    })
-    .then(data => {
-        pintaDades(data);
-    })
+        .then(response => {
+            if (response.ok) return response.json();
+            else {
+                alert("No se ha podido completar la carga. " + response.status)
+            }
+        })
 
-
+        .then(data => {
+            carregaDades(data);
+        })
 };
-function pintaDades(dades) {
-        var fotosRov = dades.photos;
-        let result = "";
-        if(fotos.lenght){
-            fotosRov.forEach((element) => {
-                result += `<p>
-                <label> Imagen amb l'id: ${element.id}, camara: ${element.camera.full_name}, fecha: ${element.earth_date},
-                Rover name: ${element.rover.name} (${element.rover.status}) (Arribada a Mart: ${cambiarFecha(element.rover.lading_date)})
-                <img src= '${element.img_src}'>
-                </p>`;
-            });
-        }else {
-            result = "No hem trobat resultat";
-        }
-        result.innerHTML = result; 
+
+
+function carregaDades(dades) {
+    var photos = dades.photos;
+    let res = "";
+    if (photos.length) {
+        photos.forEach((element) => {
+            res += `
+            <div class="col">
+          <div class="card shadow-sm">
+          <img src='${element.img_src}' alt="" class="img-thumbnail">
+            <div class="card-body">
+              <p class="card-text">Imagen con id: ${element.id}, camara: ${element.camera.full_name}, Rover name: ${element.rover.name}
+                (${element.rover.status}), llegada a Marte: ${cambiaFecha(element.rover.landing_date)}.
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Fecha: ${cambiaFecha(element.earth_date)} </small>
+              </div>
+            </div>
+          </div>
+        </div>`;
+        });
+    } else {
+        res = "No se han encontrado resultados";
     }
-        
+
+    resultat.innerHTML = res;
+};
+
+function cambiaFecha(fecha) {
+    let arrayFecha = fecha.split("-");
+    return `${arrayFecha[2]}/${arrayFecha[1]}/${arrayFecha[0]}`;
+};
+
